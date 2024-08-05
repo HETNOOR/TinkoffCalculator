@@ -5,7 +5,6 @@
 //  Created by Максим Герасимов on 05.08.2024.
 //
 
-
 import UIKit
 
 final class CalculationsListViewController: UIViewController {
@@ -16,7 +15,7 @@ final class CalculationsListViewController: UIViewController {
     
     // MARK: - Properties
     
-    var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
+    var calculations: [Calculation] = []
     
     // MARK: - IBOutlet
     
@@ -83,10 +82,9 @@ extension CalculationsListViewController: UITableViewDelegate {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        let currentDate = dateFormatter.string(from: Date())
         
         let label = UILabel()
-        label.text = currentDate
+        label.text = dateFormatter.string(from: calculations[section].date)
         label.textColor = UIColor.white
         
         headerView.addSubview(label)
@@ -103,12 +101,16 @@ extension CalculationsListViewController: UITableViewDelegate {
 
 extension CalculationsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return calculations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HistoryTableViewCell
-        let historyItem = calculations[indexPath.row]
+        let historyItem = calculations[indexPath.section]
         cell.configure(with: expressionToString(historyItem.expression), result: String(historyItem.result))
         return cell
     }

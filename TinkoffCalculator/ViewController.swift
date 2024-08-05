@@ -5,17 +5,16 @@
 //  Created by Максим Герасимов on 30.06.2024.
 //
 
+
 import UIKit
 
 enum CalculationError: Error {
     case dividedByZero
-    case invalidOperation
-    case invalidInput
 }
 
 enum Operation: String {
     case add = "+"
-    case substract = "-"
+    case subtract = "-"
     case multiply = "x"
     case divide = "/"
     
@@ -23,13 +22,10 @@ enum Operation: String {
         switch self {
         case .add:
             return number1 + number2
-            
-        case .substract:
+        case .subtract:
             return number1 - number2
-            
         case .multiply:
             return number1 * number2
-            
         case .divide:
             if number2 == 0 {
                 throw CalculationError.dividedByZero
@@ -40,44 +36,74 @@ enum Operation: String {
 }
 
 enum CalculationHistoryItem {
-    case number (Double)
-    case operation (Operation)
-    
+    case number(Double)
+    case operation(Operation)
 }
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    
+    // MARK: - IBOutlet
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var historyButton: UIButton!
     
+    // MARK: - Private Properties
+    
     private var calculationHistory: [CalculationHistoryItem] = []
-    private var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
+    private var calculations: [Calculation] = []
+    private let calculationHistoryStorage = CalculationHistoryStorage()
     private var noCalculate = "NoData"
     
+    private lazy var numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.usesGroupingSeparator = false
+        numberFormatter.locale = Locale(identifier: "ru_RU")
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter
+    }()
+    
+    // MARK: - View Life Cycles
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        resetLabelText()
+        historyButton.accessibilityIdentifier = "historyButton"
+        calculations = calculationHistoryStorage.loadHistory()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    // MARK: - IBAction
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         guard let buttonText = sender.currentTitle else { return }
         
-        if buttonText == "," {
-            if label.text?.contains(",") == true {
-                return
-            }
-            if label.text == "0" {
-                label.text?.append(buttonText)
-                return
-            }
+        if label.text == "Ошибка" {
+            resetLabelText()
         }
         
-        if label.text == "0" {
-            label.text = buttonText
+        if buttonText == "," {
+            if label.text == "0" {
+                label.text = "0,"
+            } else if !label.text!.contains(",") {
+                label.text?.append(buttonText)
+            }
         } else {
-            label.text?.append(buttonText)
+            if label.text == "0" {
+                label.text = buttonText
+            } else {
+                label.text?.append(buttonText)
+            }
         }
     }
     
     @IBAction func operationButtonPressed(_ sender: UIButton) {
-        guard let buttonText = sender.currentTitle,
-              let buttonOperation = Operation(rawValue: buttonText)
+        guard
+            let buttonText = sender.currentTitle,
+            let buttonOperation = Operation(rawValue: buttonText)
         else { return }
         
         guard
@@ -91,7 +117,7 @@ class ViewController: UIViewController {
         resetLabelText()
     }
     
-    @IBAction func clearButtonPressed() {
+    @IBAction func clearButtonPressed(_ sender: UIButton) {
         calculationHistory.removeAll()
         resetLabelText()
     }
@@ -103,11 +129,16 @@ class ViewController: UIViewController {
         else { return }
         
         calculationHistory.append(.number(labelNumber))
-        
         do {
             let result = try calculate()
             label.text = numberFormatter.string(from: NSNumber(value: result))
-            calculations.append((calculationHistory, result))
+            let newCalculation = Calculation(
+                expression: calculationHistory,
+                result: result,
+                date: Date()
+            )
+            calculations.append(newCalculation)
+            calculationHistoryStorage.setHistory(calculation: calculations)
         } catch {
             label.text = "Ошибка"
         }
@@ -116,28 +147,6 @@ class ViewController: UIViewController {
             noCalculate = "NoData"
         }
         calculationHistory.removeAll()
-    }
-    
-    
-    lazy var numberFormatter: NumberFormatter = {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.usesGroupingSeparator = false
-        numberFormatter.locale = Locale(identifier: "ru_RU")
-        numberFormatter.numberStyle = .decimal
-        return numberFormatter
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        resetLabelText()
-        
-        historyButton.accessibilityIdentifier = "historyButton"
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     @IBAction func showCalculationsList(_ sender: Any) {
@@ -149,28 +158,25 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(calculationsListVC, animated: true)
     }
     
+    // MARK: - Private Methods
     
-    func calculate() throws -> Double {
-        guard !calculationHistory.isEmpty, case .number(let firstNumber) = calculationHistory[0] else {
-            throw CalculationError.invalidInput
-        }
-        
+    private func calculate() throws -> Double {
+        guard case .number(let firstNumber) = calculationHistory[0] else { return 0 }
         var currentResult = firstNumber
         
-        for index in stride(from: 1, to: calculationHistory.count - 1, by: 2) {
+        for index in stride(from: 1, through: calculationHistory.count - 1, by: 2) {
             guard
                 case .operation(let operation) = calculationHistory[index],
                 case .number(let number) = calculationHistory[index + 1]
-            else {
-                throw CalculationError.invalidOperation
-            }
+            else { break }
+            
             currentResult = try operation.calculate(currentResult, number)
         }
         
         return currentResult
     }
     
-    func resetLabelText() {
+    private func resetLabelText() {
         label.text = "0"
     }
 }
