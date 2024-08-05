@@ -101,12 +101,17 @@ class ViewController: UIViewController {
         } catch {
             label.text = "Ошибка"
         }
+        noCalculate = label.text ?? "NoData"
+        if calculationHistory.count == 1 {
+            noCalculate = "NoData"
+        }
         calculationHistory.removeAll()
     }
     
     @IBOutlet weak var label: UILabel!
     
     var calculationHistory: [CalculationHistoryItem] = []
+    private var noCalculate = "NoData"
     
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
@@ -120,6 +125,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         resetLabelText()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @IBAction func showCalculationsList(_ sender: Any) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let calculationsListVC = sb.instantiateViewController(identifier: "CalculationsListViewController")
+        if let vc = calculationsListVC as? CalculationsListViewController {
+            if calculationHistory.count == 0 {vc.result = noCalculate} else {
+                vc.result = label.text}}
+        
+        navigationController?.pushViewController(calculationsListVC, animated: true)
+    }
+    
     
     func calculate() throws -> Double {
         guard !calculationHistory.isEmpty, case .number(let firstNumber) = calculationHistory[0] else {
