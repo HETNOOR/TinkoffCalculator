@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF3659362C60D5280054781A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3659342C60D5280054781A /* HistoryTableViewCell.swift */; };
+		CF3659372C60D5280054781A /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF3659352C60D5280054781A /* HistoryTableViewCell.xib */; };
+		CF3659382C60D5280054781A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3659342C60D5280054781A /* HistoryTableViewCell.swift */; };
+		CF3659392C60D5280054781A /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF3659352C60D5280054781A /* HistoryTableViewCell.xib */; };
+		CF36593A2C60D5280054781A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3659342C60D5280054781A /* HistoryTableViewCell.swift */; };
+		CF36593B2C60D5280054781A /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF3659352C60D5280054781A /* HistoryTableViewCell.xib */; };
 		CF8F96B62C315E80000AB248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F96B52C315E80000AB248 /* AppDelegate.swift */; };
 		CF8F96B82C315E80000AB248 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F96B72C315E80000AB248 /* SceneDelegate.swift */; };
 		CF8F96BA2C315E80000AB248 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F96B92C315E80000AB248 /* ViewController.swift */; };
@@ -39,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF3659342C60D5280054781A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		CF3659352C60D5280054781A /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		CF8F96B22C315E80000AB248 /* TinkoffCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8F96B52C315E80000AB248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8F96B72C315E80000AB248 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF3659332C60D4C20054781A /* History */ = {
+			isa = PBXGroup;
+			children = (
+				CFB0C95A2C608F0F00C8769E /* CalculationsListViewController.swift */,
+				CF3659342C60D5280054781A /* HistoryTableViewCell.swift */,
+				CF3659352C60D5280054781A /* HistoryTableViewCell.xib */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		CF8F96A92C315E80000AB248 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +121,7 @@
 		CF8F96B42C315E80000AB248 /* TinkoffCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				CF3659332C60D4C20054781A /* History */,
 				CF8F96B52C315E80000AB248 /* AppDelegate.swift */,
 				CF8F96B72C315E80000AB248 /* SceneDelegate.swift */,
 				CF8F96B92C315E80000AB248 /* ViewController.swift */,
@@ -110,7 +129,6 @@
 				CF8F96BE2C315E82000AB248 /* Assets.xcassets */,
 				CF8F96C02C315E82000AB248 /* LaunchScreen.storyboard */,
 				CF8F96C32C315E82000AB248 /* Info.plist */,
-				CFB0C95A2C608F0F00C8769E /* CalculationsListViewController.swift */,
 			);
 			path = TinkoffCalculator;
 			sourceTree = "<group>";
@@ -239,6 +257,7 @@
 			files = (
 				CF8F96BF2C315E82000AB248 /* Assets.xcassets in Resources */,
 				CF8F96C22C315E82000AB248 /* Base in Resources */,
+				CF3659372C60D5280054781A /* HistoryTableViewCell.xib in Resources */,
 				CF8F96BD2C315E80000AB248 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3659392C60D5280054781A /* HistoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF36593B2C60D5280054781A /* HistoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +289,7 @@
 				CF8F96BA2C315E80000AB248 /* ViewController.swift in Sources */,
 				CF8F96B62C315E80000AB248 /* AppDelegate.swift in Sources */,
 				CF8F96B82C315E80000AB248 /* SceneDelegate.swift in Sources */,
+				CF3659362C60D5280054781A /* HistoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3659382C60D5280054781A /* HistoryTableViewCell.swift in Sources */,
 				CFB0C95C2C608F0F00C8769E /* CalculationsListViewController.swift in Sources */,
 				CF8F96CD2C315E82000AB248 /* TinkoffCalculatorTests.swift in Sources */,
 			);
@@ -286,6 +309,7 @@
 			files = (
 				CFB0C95D2C608F0F00C8769E /* CalculationsListViewController.swift in Sources */,
 				CF8F96D92C315E82000AB248 /* TinkoffCalculatorUITestsLaunchTests.swift in Sources */,
+				CF36593A2C60D5280054781A /* HistoryTableViewCell.swift in Sources */,
 				CF8F96D72C315E82000AB248 /* TinkoffCalculatorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -42,9 +42,18 @@ enum Operation: String {
 enum CalculationHistoryItem {
     case number (Double)
     case operation (Operation)
+    
 }
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var historyButton: UIButton!
+    
+    private var calculationHistory: [CalculationHistoryItem] = []
+    private var calculations: [(expression: [CalculationHistoryItem], result: Double)] = []
+    private var noCalculate = "NoData"
+    
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         guard let buttonText = sender.currentTitle else { return }
@@ -98,6 +107,7 @@ class ViewController: UIViewController {
         do {
             let result = try calculate()
             label.text = numberFormatter.string(from: NSNumber(value: result))
+            calculations.append((calculationHistory, result))
         } catch {
             label.text = "Ошибка"
         }
@@ -108,10 +118,6 @@ class ViewController: UIViewController {
         calculationHistory.removeAll()
     }
     
-    @IBOutlet weak var label: UILabel!
-    
-    var calculationHistory: [CalculationHistoryItem] = []
-    private var noCalculate = "NoData"
     
     lazy var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
@@ -124,6 +130,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resetLabelText()
+        
+        historyButton.accessibilityIdentifier = "historyButton"
     }
     
     
@@ -136,9 +144,8 @@ class ViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let calculationsListVC = sb.instantiateViewController(identifier: "CalculationsListViewController")
         if let vc = calculationsListVC as? CalculationsListViewController {
-            if calculationHistory.count == 0 {vc.result = noCalculate} else {
-                vc.result = label.text}}
-        
+            vc.calculations = calculations
+        }
         navigationController?.pushViewController(calculationsListVC, animated: true)
     }
     

@@ -310,6 +310,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Калькулятор" id="usE-RP-rvI"/>
                     <connections>
+                        <outlet property="historyButton" destination="PTO-5f-0Pr" id="yqo-sX-nMQ"/>
                         <outlet property="label" destination="qhA-F3-zpm" id="yfO-Re-Ge8"/>
                     </connections>
                 </viewController>
@@ -318,53 +319,35 @@
             <point key="canvasLocation" x="980.91603053435108" y="-34.507042253521128"/>
         </scene>
         <!--Прошлые вычисления-->
-        <scene sceneID="zmk-hs-G8z">
+        <scene sceneID="FA7-vV-wUb">
             <objects>
-                <viewController storyboardIdentifier="CalculationsListViewController" id="xgu-Z2-4ZB" customClass="CalculationsListViewController" customModule="TinkoffCalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Z0V-Wh-BSh">
+                <viewController storyboardIdentifier="CalculationsListViewController" id="OF2-YT-AAT" customClass="CalculationsListViewController" customModule="TinkoffCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vnh-CN-Z1a">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXD-jE-3eo">
-                                <rect key="frame" x="157" y="415.66666666666669" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vla-SE-ap8">
-                                <rect key="frame" x="151.33333333333334" y="512" width="90.666666666666657" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Закрыть"/>
-                                <connections>
-                                    <action selector="dismissVC:" destination="xgu-Z2-4ZB" eventType="touchUpInside" id="R3C-ui-c82"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-JG-bc1">
-                                <rect key="frame" x="196.66666666666666" y="483" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="h8b-Oc-6Nq">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="EIQ-c0-bdv"/>
+                        <viewLayoutGuide key="safeArea" id="dO3-RK-abN"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
-                            <constraint firstItem="vla-SE-ap8" firstAttribute="top" secondItem="nXD-jE-3eo" secondAttribute="bottom" constant="75.333333333333314" id="4Vo-AA-9m6"/>
-                            <constraint firstItem="mfn-JG-bc1" firstAttribute="top" secondItem="nXD-jE-3eo" secondAttribute="bottom" constant="46.333333333333314" id="P4R-dK-n9y"/>
-                            <constraint firstItem="vla-SE-ap8" firstAttribute="centerX" secondItem="Z0V-Wh-BSh" secondAttribute="centerX" id="QLi-Ga-PVs"/>
-                            <constraint firstItem="mfn-JG-bc1" firstAttribute="centerX" secondItem="Z0V-Wh-BSh" secondAttribute="centerX" id="UWg-EX-Nto"/>
-                            <constraint firstItem="nXD-jE-3eo" firstAttribute="centerY" secondItem="Z0V-Wh-BSh" secondAttribute="centerY" id="VVx-lW-EUF"/>
-                            <constraint firstItem="nXD-jE-3eo" firstAttribute="centerX" secondItem="Z0V-Wh-BSh" secondAttribute="centerX" id="tVv-KN-Lbg"/>
+                            <constraint firstItem="h8b-Oc-6Nq" firstAttribute="trailing" secondItem="dO3-RK-abN" secondAttribute="trailing" id="8PC-sf-24f"/>
+                            <constraint firstItem="h8b-Oc-6Nq" firstAttribute="leading" secondItem="dO3-RK-abN" secondAttribute="leading" id="CtA-mT-rqt"/>
+                            <constraint firstItem="h8b-Oc-6Nq" firstAttribute="bottom" secondItem="dO3-RK-abN" secondAttribute="bottom" id="m7u-fN-NRq"/>
+                            <constraint firstItem="h8b-Oc-6Nq" firstAttribute="top" secondItem="dO3-RK-abN" secondAttribute="top" id="wRY-o4-tgp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Прошлые вычисления" id="oCz-qI-xux"/>
+                    <navigationItem key="navigationItem" title="Прошлые вычисления" id="X5y-sE-K3T"/>
                     <connections>
-                        <outlet property="calculationLabel" destination="mfn-JG-bc1" id="l1D-aI-tbe"/>
+                        <outlet property="tableView" destination="h8b-Oc-6Nq" id="fPw-1o-IZG"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nsJ-Cc-PhG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FRW-wQ-an4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.6564885496182" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="1895" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zha-eV-Hps">
