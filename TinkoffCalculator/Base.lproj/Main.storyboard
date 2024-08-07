@@ -41,14 +41,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Es-C6-QgL">
-                                <rect key="frame" x="147.33333333333331" y="353.33333333333331" width="147.33333333333331" height="93"/>
+                                <rect key="frame" x="197" y="353.33333333333331" width="97.666666666666686" height="93"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="C"/>
                                 <connections>
-                                    <action selector="clearButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="DDi-Z4-P80"/>
+                                    <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9e-tD-fNM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-Lq-hU3">
+                                <rect key="frame" x="98" y="353.33333333333331" width="99" height="93"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="π"/>
+                                <connections>
+                                    <action selector="piButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zFd-xt-hrm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhi-yB-u9h">
@@ -212,7 +223,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTO-5f-0Pr">
-                                <rect key="frame" x="0.0" y="353.33333333333331" width="147.33333333333334" height="93"/>
+                                <rect key="frame" x="0.0" y="353.33333333333331" width="98" height="93"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" identifier="historyButton">
                                     <bool key="isElement" value="YES"/>
@@ -236,21 +247,23 @@
                             <constraint firstItem="YYN-5W-yLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2QC-uU-nWJ"/>
                             <constraint firstItem="Jg5-a6-v8V" firstAttribute="leading" secondItem="B5g-Zo-s6K" secondAttribute="trailing" id="3Ss-yl-h0n"/>
                             <constraint firstItem="lbF-i3-BZe" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="3uN-MW-GYF"/>
+                            <constraint firstItem="8mG-Lq-hU3" firstAttribute="bottom" secondItem="ihV-du-clQ" secondAttribute="top" id="4IO-oC-VwA"/>
                             <constraint firstItem="Jg5-a6-v8V" firstAttribute="bottom" secondItem="Dhi-yB-u9h" secondAttribute="top" id="4Vv-TK-LAH"/>
                             <constraint firstItem="Fni-bV-Q02" firstAttribute="bottom" secondItem="lbF-i3-BZe" secondAttribute="top" id="4fB-Pk-0Ai"/>
                             <constraint firstItem="eaf-Vf-1od" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="5D0-rF-DF9"/>
                             <constraint firstItem="kO4-D7-5gn" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.25" id="79d-0u-dgc"/>
+                            <constraint firstItem="8mG-Lq-hU3" firstAttribute="leading" secondItem="PTO-5f-0Pr" secondAttribute="trailing" id="8Ij-n0-jNw"/>
                             <constraint firstItem="lbF-i3-BZe" firstAttribute="leading" secondItem="kO4-D7-5gn" secondAttribute="trailing" id="9RJ-zM-p7c"/>
                             <constraint firstItem="YYN-5W-yLq" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="9iQ-Lj-i6u"/>
                             <constraint firstItem="Z3N-8Q-f8U" firstAttribute="bottom" secondItem="Jg5-a6-v8V" secondAttribute="top" id="A4c-m5-A0P"/>
                             <constraint firstItem="dHU-mG-0xy" firstAttribute="bottom" secondItem="Z3N-8Q-f8U" secondAttribute="top" id="A6N-dO-xIi"/>
                             <constraint firstItem="5Es-C6-QgL" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="BWV-lD-CrD"/>
+                            <constraint firstItem="8mG-Lq-hU3" firstAttribute="height" secondItem="5Es-C6-QgL" secondAttribute="height" id="CaZ-4u-Dbr"/>
                             <constraint firstItem="PTO-5f-0Pr" firstAttribute="bottom" secondItem="5Es-C6-QgL" secondAttribute="bottom" id="CtK-1Y-Cec"/>
                             <constraint firstItem="ufr-kp-fAU" firstAttribute="bottom" secondItem="kO4-D7-5gn" secondAttribute="top" id="D6b-ou-u5R"/>
                             <constraint firstItem="gaA-1Q-O2Z" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="FWP-L9-l1L"/>
                             <constraint firstItem="Dhi-yB-u9h" firstAttribute="leading" secondItem="fxI-20-nu8" secondAttribute="trailing" id="GPS-Of-ted"/>
                             <constraint firstItem="Z3N-8Q-f8U" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="GQ9-sC-cNp"/>
-                            <constraint firstItem="5Es-C6-QgL" firstAttribute="leading" secondItem="PTO-5f-0Pr" secondAttribute="trailing" id="GTd-Rd-iFb"/>
                             <constraint firstItem="B5g-Zo-s6K" firstAttribute="leading" secondItem="lbF-i3-BZe" secondAttribute="trailing" id="JGR-ps-nbT"/>
                             <constraint firstItem="irO-8F-lG7" firstAttribute="leading" secondItem="ihV-du-clQ" secondAttribute="trailing" id="MVh-qF-V09"/>
                             <constraint firstItem="PTO-5f-0Pr" firstAttribute="height" secondItem="5Es-C6-QgL" secondAttribute="height" id="N72-EW-vPb"/>
@@ -269,6 +282,7 @@
                             <constraint firstItem="ufr-kp-fAU" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="W0B-Qi-Dr9"/>
                             <constraint firstItem="fxI-20-nu8" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="Wad-jn-gkU"/>
                             <constraint firstItem="Dhi-yB-u9h" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.25" id="Wxf-c4-qsH"/>
+                            <constraint firstItem="8mG-Lq-hU3" firstAttribute="width" secondItem="5Es-C6-QgL" secondAttribute="width" multiplier="1.0102" id="ZNx-pz-fYM"/>
                             <constraint firstItem="fxI-20-nu8" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.5" id="Zfm-6t-mL2"/>
                             <constraint firstItem="PTO-5f-0Pr" firstAttribute="width" secondItem="5Es-C6-QgL" secondAttribute="width" id="bvL-G9-sO8"/>
                             <constraint firstItem="gaA-1Q-O2Z" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.25" id="cab-9D-mrV"/>
@@ -291,6 +305,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dhi-yB-u9h" secondAttribute="bottom" id="qzX-lj-9Tg"/>
                             <constraint firstItem="B5g-Zo-s6K" firstAttribute="bottom" secondItem="fxI-20-nu8" secondAttribute="top" id="rja-Uf-0EY"/>
                             <constraint firstItem="dHU-mG-0xy" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.13" id="ru4-aM-1ui"/>
+                            <constraint firstItem="5Es-C6-QgL" firstAttribute="leading" secondItem="8mG-Lq-hU3" secondAttribute="trailing" id="sHl-qT-gfQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fxI-20-nu8" secondAttribute="bottom" id="sND-2N-nrN"/>
                             <constraint firstItem="B5g-Zo-s6K" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.25" id="u1w-h4-Nfg"/>
                             <constraint firstItem="kO4-D7-5gn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uZP-kJ-Sdh"/>

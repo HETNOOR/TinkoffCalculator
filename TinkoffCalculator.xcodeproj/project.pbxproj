@@ -26,6 +26,9 @@
 		CF36594C2C60F2C60054781A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F96BB2C315E80000AB248 /* Main.storyboard */; };
 		CF36594E2C60F2C70054781A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F96BB2C315E80000AB248 /* Main.storyboard */; };
 		CF36594F2C60F2C80054781A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8F96BB2C315E80000AB248 /* Main.storyboard */; };
+		CF6480352C63970F00FE2696 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6480342C63970E00FE2696 /* AlertView.swift */; };
+		CF6480362C63970F00FE2696 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6480342C63970E00FE2696 /* AlertView.swift */; };
+		CF6480372C63970F00FE2696 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6480342C63970E00FE2696 /* AlertView.swift */; };
 		CF8F96B62C315E80000AB248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F96B52C315E80000AB248 /* AppDelegate.swift */; };
 		CF8F96B82C315E80000AB248 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8F96B72C315E80000AB248 /* SceneDelegate.swift */; };
 		CF8F96BF2C315E82000AB248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF8F96BE2C315E82000AB248 /* Assets.xcassets */; };
@@ -59,6 +62,7 @@
 		CF3659342C60D5280054781A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		CF3659352C60D5280054781A /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		CF36593D2C60F2530054781A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		CF6480342C63970E00FE2696 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		CF8F96B22C315E80000AB248 /* TinkoffCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8F96B52C315E80000AB248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8F96B72C315E80000AB248 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				CF8F96B52C315E80000AB248 /* AppDelegate.swift */,
 				CF8F96B72C315E80000AB248 /* SceneDelegate.swift */,
 				CF8F96B92C315E80000AB248 /* ViewController.swift */,
+				CF6480342C63970E00FE2696 /* AlertView.swift */,
 				CF8F96BB2C315E80000AB248 /* Main.storyboard */,
 				CF8F96BE2C315E82000AB248 /* Assets.xcassets */,
 				CF8F96C02C315E82000AB248 /* LaunchScreen.storyboard */,
@@ -310,6 +315,7 @@
 			files = (
 				CF3659442C60F2950054781A /* ViewController.swift in Sources */,
 				CFB0C95B2C608F0F00C8769E /* CalculationsListViewController.swift in Sources */,
+				CF6480352C63970F00FE2696 /* AlertView.swift in Sources */,
 				CF8F96B62C315E80000AB248 /* AppDelegate.swift in Sources */,
 				CF8F96B82C315E80000AB248 /* SceneDelegate.swift in Sources */,
 				CF3659362C60D5280054781A /* HistoryTableViewCell.swift in Sources */,
@@ -326,6 +332,7 @@
 				CF36593F2C60F2530054781A /* Storage.swift in Sources */,
 				CFB0C95C2C608F0F00C8769E /* CalculationsListViewController.swift in Sources */,
 				CF36594A2C60F2BA0054781A /* AppDelegate.swift in Sources */,
+				CF6480362C63970F00FE2696 /* AlertView.swift in Sources */,
 				CF8F96CD2C315E82000AB248 /* TinkoffCalculatorTests.swift in Sources */,
 				CF3659462C60F2B10054781A /* SceneDelegate.swift in Sources */,
 			);
@@ -337,6 +344,7 @@
 			files = (
 				CF36594B2C60F2BA0054781A /* AppDelegate.swift in Sources */,
 				CF3659422C60F2930054781A /* ViewController.swift in Sources */,
+				CF6480372C63970F00FE2696 /* AlertView.swift in Sources */,
 				CF3659492C60F2B60054781A /* SceneDelegate.swift in Sources */,
 				CFB0C95D2C608F0F00C8769E /* CalculationsListViewController.swift in Sources */,
 				CF8F96D92C315E82000AB248 /* TinkoffCalculatorUITestsLaunchTests.swift in Sources */,
